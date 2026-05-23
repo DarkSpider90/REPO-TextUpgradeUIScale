@@ -1,10 +1,14 @@
 # Changelog
 
+## 1.2.1
+
+- Updated the README preview image to use the raw GitHub image URL.
+- Set the default `ShrinkStep` to `0.07`.
+
 ## 1.2.0
 
 - Added a BepInEx config file for scaling behavior and text layout.
 - Added configurable step-based text shrinking.
-- Set the default `ShrinkStep` to `0.07`.
 - Added configurable line spacing.
 - Added optional width-based shrinking for long upgrade names.
 - Renamed the BepInEx config to `DarkSpider90.TextUpgradesUIScale.cfg`.
