@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using DSStatsUIFontMod;
 using HarmonyLib;
 using TMPro;
 using UnityEngine;
@@ -9,7 +8,7 @@ using UnityEngine;
 namespace TextUpgradesUIScale.Patches
 {
     [HarmonyPatch(typeof(StatsUI), "Fetch")]
-    public static class StatsUIPatchMod
+    public static class StatsUIPatch
     {
         private const float TechnicalMinimumScale = 0.05f;
 
@@ -51,7 +50,7 @@ namespace TextUpgradesUIScale.Patches
 
                 CaptureDefaultsIfNeeded(mainText, numbersText);
 
-                if (!StatsUIFontMod.ModEnabled.Value)
+                if (!Plugin.ModEnabled.Value)
                 {
                     RestoreTextColumns(mainText, numbersText);
                     return;
@@ -78,9 +77,9 @@ namespace TextUpgradesUIScale.Patches
                 if (!_loggedException)
                 {
                     _loggedException = true;
-                    if (StatsUIFontMod.Log != null)
+                    if (Plugin.Log != null)
                     {
-                        StatsUIFontMod.Log.LogWarning("[TextUpgradesUIScale] Failed to resize StatsUI text: " + ex.Message);
+                        Plugin.Log.LogWarning("[TextUpgradesUIScale] Failed to resize StatsUI text: " + ex.Message);
                     }
                 }
             }
@@ -130,7 +129,7 @@ namespace TextUpgradesUIScale.Patches
             text.enableWordWrapping = false;
             text.overflowMode = TextOverflowModes.Overflow;
             text.verticalAlignment = VerticalAlignmentOptions.Top;
-            text.lineSpacing = defaultLineSpacing + StatsUIFontMod.LineSpacing.Value;
+            text.lineSpacing = defaultLineSpacing + Plugin.LineSpacing.Value;
         }
 
         private static void RestoreTextColumns(TextMeshProUGUI mainText, TextMeshProUGUI numbersText)
@@ -151,14 +150,14 @@ namespace TextUpgradesUIScale.Patches
 
         private static float GetScaleForUpgradeCount(int activeUpgradesCount)
         {
-            int startShrinkingAfter = Mathf.Max(0, StatsUIFontMod.StartShrinkingAfterUpgradesCount.Value);
+            int startShrinkingAfter = Mathf.Max(0, Plugin.StartShrinkingAfterUpgradesCount.Value);
             if (activeUpgradesCount <= startShrinkingAfter)
             {
                 return 1f;
             }
 
-            int shrinkEveryUpgrades = Mathf.Max(1, StatsUIFontMod.ShrinkEveryUpgrades.Value);
-            float shrinkStep = Mathf.Clamp(StatsUIFontMod.ShrinkStep.Value, 0.01f, 0.5f);
+            int shrinkEveryUpgrades = Mathf.Max(1, Plugin.ShrinkEveryUpgrades.Value);
+            float shrinkStep = Mathf.Clamp(Plugin.ShrinkStep.Value, 0.01f, 0.5f);
             int extraUpgrades = Mathf.Max(0, activeUpgradesCount - startShrinkingAfter);
             int steps = Mathf.CeilToInt(extraUpgrades / (float)shrinkEveryUpgrades);
 
@@ -167,7 +166,7 @@ namespace TextUpgradesUIScale.Patches
 
         private static float ApplyWidthLimit(TextMeshProUGUI mainText, float currentScale)
         {
-            float maxTextWidth = StatsUIFontMod.MaxTextWidthBeforeShrinking.Value;
+            float maxTextWidth = Plugin.MaxTextWidthBeforeShrinking.Value;
             if (maxTextWidth <= 1f)
             {
                 return currentScale;
@@ -217,9 +216,9 @@ namespace TextUpgradesUIScale.Patches
             }
 
             _loggedMissingFields = true;
-            if (StatsUIFontMod.Log != null)
+            if (Plugin.Log != null)
             {
-                StatsUIFontMod.Log.LogWarning("[TextUpgradesUIScale] Could not access StatsUI text fields. The game UI may have changed.");
+                Plugin.Log.LogWarning("[TextUpgradesUIScale] Could not access StatsUI text fields. The game UI may have changed.");
             }
         }
     }

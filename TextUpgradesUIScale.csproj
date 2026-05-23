@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DSStatsUIFontMod.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Patches\StatsUIPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

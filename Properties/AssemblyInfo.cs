@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TextUpgradesUIScale")]
 [assembly: AssemblyDescription("Resizes the R.E.P.O. upgrades UI text for large upgrade lists.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("DarkSpider")]
+[assembly: AssemblyCompany("DarkSpider90")]
 [assembly: AssemblyProduct("TextUpgradesUIScale")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
