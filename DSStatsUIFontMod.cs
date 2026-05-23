@@ -11,7 +11,7 @@ namespace DSStatsUIFontMod
     {
         private const string ModGuid = "DarkSpider90.TextUpgradesUIScale";
         private const string ModName = "TextUpgradesUIScale";
-        private const string ModVersion = "1.4.1";
+        private const string ModVersion = "1.2.0";
 
         private readonly Harmony harmony = new Harmony(ModGuid);
 
@@ -29,7 +29,7 @@ namespace DSStatsUIFontMod
             Log = Logger;
             BindConfig();
 
-            Log.LogInfo("Loaded TextUpgradesUIScale 1.4.1 for R.E.P.O. v0.4.0 UI.");
+            Log.LogInfo("Loaded TextUpgradesUIScale 1.2.0 for R.E.P.O. v0.4.0 UI.");
             harmony.PatchAll(typeof(StatsUIPatchMod));
         }
 

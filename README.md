@@ -1,7 +1,11 @@
 # Text Upgrade UI Scale
 
-Useful for heavily modded lobbies where the vanilla upgrade UI overflows the screen.
 Text Upgrade UI Scale keeps long modded upgrade lists readable by dynamically scaling and spacing the upgrade text when too many upgrades are active.
+
+Useful for heavily modded lobbies where the vanilla upgrade UI overflows the screen.
+
+![Preview](images/preview.png)
+
 
 ## Config
 
