@@ -4,7 +4,7 @@ Text Upgrades UI Scale keeps long modded upgrade lists readable by dynamically s
 
 Useful for heavily modded lobbies where the vanilla upgrade UI overflows the screen.
 
-![Preview](https://raw.githubusercontent.com/DarkSpider90/REPO-TextUpgradesUIScale/main/images/preview.png)
+![Preview](https://raw.githubusercontent.com/DarkSpider90/REPO-TextUpgradeUIScale/main/images/preview.png)
 
 ## Config
 
